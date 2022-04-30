@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shipments</h1>
+<%= link_to 'New Shipment', new_shipment_path, class: 'btn btn-primary' %>
+
+<table class='table table-striped table-responsive'>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Container name</th>
+      <th>Container description</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shipments.each do |shipment| %>
+      <tr>
+        <td><%= shipment.company %></td>
+        <td><%= shipment.container_name %></td>
+        <td><%= shipment.container_description %></td>
+        <td><%= shipment.departure %></td>
+        <td><%= shipment.arrival %></td>
+        <td><%= link_to 'Show', shipment, class: 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Edit', edit_shipment_path(shipment), class: 'btn btn-outline-success' %></td>
+        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

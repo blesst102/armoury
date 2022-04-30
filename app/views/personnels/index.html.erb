@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Personnels</h1>
+<%= link_to 'New Personnel', new_personnel_path, class: 'btn btn-primary' %>
+
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>Svc number</th>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Dob</th>
+      <th>Commission date</th>
+      <th>Senioriry date</th>
+      <th>Unit</th>
+      <th>Personnel Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personnels.each do |personnel| %>
+      <tr>
+        <td><%= personnel.svc_number %></td>
+        <td><%= personnel.rank %></td>
+        <td><%= personnel.name %></td>
+        <td><%= personnel.gender %></td>
+        <td><%= personnel.dob %></td>
+        <td><%= personnel.commission_date %></td>
+        <td><%= personnel.senioriry_date %></td>
+        <td><%= personnel.unit %></td>
+        <td><%= personnel.level_work %></td>
+        <td><%= link_to 'Show', personnel %></td>
+        <td><%= link_to 'Edit', edit_personnel_path(personnel) %></td>
+        <td><%= link_to 'Destroy', personnel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

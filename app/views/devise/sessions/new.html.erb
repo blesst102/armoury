@@ -1,0 +1,41 @@
+<div class="modal modal-signin position-static d-block bg-success py-5" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <!-- <h5 class="modal-title">Modal title</h5> -->
+        <h2 class="fw-bold mb-0"><%= t('.sign_in') %></h2>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= bootstrap_devise_error_messages! %>
+        <form class="">       
+          <div class="form-floating mb-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+          <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+            <label for="floatingPassword">Password</label>
+          </div>
+          <% if devise_mapping.rememberable? %>
+          <div class="form-group form-check">
+            <%= f.check_box :remember_me, class: 'form-check-input' %>
+            <%= f.label :remember_me, class: 'form-check-label' do %>
+              <%= resource.class.human_attribute_name('remember_me') %>
+            <% end %>
+          </div>
+        <% end %>
+
+          <%= f.submit  t('.sign_in'), class: 'btn btn-primary' %>
+          <hr class="my-4">
+          <%= render 'devise/shared/links' %>
+        </form>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

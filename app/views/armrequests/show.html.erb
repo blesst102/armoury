@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="card" style="width: 16rem;">
+<% if @armrequest.avatar.attached? %>
+<%= image_tag @armrequest.avatar, class: 'card-img-top' %>
+<% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @armrequest.personnel.name %> -  <%= @armrequest.personnel.level_work %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Arm Type: <%= @armrequest.armtype %></li>
+    <li class="list-group-item">Armname: <%= @armrequest.arm.armname %></li>
+    <li class="list-group-item">Request Date: <%= @armrequest.return_date %></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link"><%= @armrequest.return_status %></a>
+    <a href="#" class="card-link"><%= @armrequest.request_date %></a>
+  </div>
+  <div class="card-body">
+  <p>Staff on duty <%= current_user.email %></p>
+  </div>
+</div>

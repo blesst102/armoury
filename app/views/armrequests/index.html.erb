@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Armrequests</h1>
+<%= link_to 'New Armrequest', new_armrequest_path, class: 'btn btn-primary' %>
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>Personnel</th>
+      <th>Armtype</th>
+      <th>Arm</th>
+      <th>Return Status</th>
+      <th>Request date</th>
+      <th>Return date</th>
+      <th>Personnel Image</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @armrequests.each do |armrequest| %>
+      <tr>
+        <td><%= armrequest.personnel.name %><%= armrequest.personnel.level_work %></td>
+        <td><%= armrequest.armtype %></td>
+        <td><%= armrequest.arm.armname %></td>
+        <td><%= armrequest.return_status %></td>
+        <td><%= armrequest.request_date %></td>
+        <td><%= armrequest.return_date %></td>
+        <td><%= image_tag armrequest.avatar, width: '40px' if armrequest.avatar.attached? %></td>
+        <td><%= link_to 'Show', armrequest, class: 'btn btn-outline-info' %></td>
+        <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_armrequest_path(armrequest), class:'btn btn-outline-success' %></td>
+        <td><%= link_to 'Delete', armrequest, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      <% end %>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

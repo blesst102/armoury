@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  srlnum: MyString
+  armname: MyString
+  armtype: MyString
+  quantity: 1
+  serviceability: MyString
+
+two:
+  srlnum: MyString
+  armname: MyString
+  armtype: MyString
+  quantity: 1
+  serviceability: MyString

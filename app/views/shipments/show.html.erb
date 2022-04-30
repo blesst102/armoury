@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @shipment.company %>
+</p>
+
+<p>
+  <strong>Container name:</strong>
+  <%= @shipment.container_name %>
+</p>
+
+<p>
+  <strong>Container description:</strong>
+  <%= @shipment.container_description %>
+</p>
+
+<p>
+  <strong>Departure:</strong>
+  <%= @shipment.departure %>
+</p>
+
+<p>
+  <strong>Arrival:</strong>
+  <%= @shipment.arrival %>
+</p>
+
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Srlnum:</strong>
+  <%= @arm.srlnum %>
+</p>
+
+<p>
+  <strong>Armname:</strong>
+  <%= @arm.armname %>
+</p>
+
+<p>
+  <strong>Armtype:</strong>
+  <%= @arm.armtype %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @arm.quantity %>
+</p>
+
+<p>
+  <strong>Serviceability:</strong>
+  <%= @arm.serviceability %>
+</p>
+
+<%= link_to 'Edit', edit_arm_path(@arm) %> |
+<%= link_to 'Back', arms_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Svc number:</strong>
+  <%= @personnel.svc_number %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @personnel.rank %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @personnel.name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @personnel.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @personnel.dob %>
+</p>
+
+<p>
+  <strong>Commission date:</strong>
+  <%= @personnel.commission_date %>
+</p>
+
+<p>
+  <strong>Senioriry date:</strong>
+  <%= @personnel.senioriry_date %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @personnel.unit %>
+</p>
+
+<%= link_to 'Edit', edit_personnel_path(@personnel) %> |
+<%= link_to 'Back', personnels_path %>

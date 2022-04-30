@@ -1,0 +1,68 @@
+    <div class="module-head">
+        <h3>Arm Request</h3>
+    </div>
+         <%= form_with(model: armrequest) do |form| %>
+        <% if armrequest.errors.any? %>
+          <div id="error_explanation"> 
+            <h2><%= pluralize(armrequest.errors.count, "error") %> prohibited this armrequest from being saved:</h2>
+
+            <ul>
+              <% armrequest.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row flex-lg-row">
+          <div class="col-lg-3">
+          <div class="form-floating">
+          <%= form.select(:personnel_id, Personnel.all.collect {|p| [p.name, p.id]},  {prompt: "Select"}, {class: 'form-control', id: 'selUser'}) %>
+          <label for="floatingInput">Personnel</label>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-floating">
+            <%= form.select :armtype, [["Small", 'Small'], ["Large", 'Large'], ["Light", 'Light']], { :selected => false }, class: 'form-select'%>
+            <label for="floatingInput">Arm Type</label>
+          </div>
+        </div>
+          <div class="col-lg-3">
+          <div class="form-floating">
+             <label>Arm</label>
+           <%= form.select(:arm_id, Arm.all.collect {|a| [a.armname, a.id]},  {prompt: "Select"}, {class: 'form-control', id: 'selUser'}) %>
+          </div>
+        </div>
+      </div>
+          <div class="row flex-lg-row">
+          <div class="col-lg-3">
+          <div class="form-floating">
+          <%= form.select :return_status, [["Unreturned", 'Unreturned'], ["Returned", 'Returned']], { :selected => true }, class: 'form-select' %>
+          <label for="floatingInput">Return Status</label>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-floating">
+            <%= form.date_field :request_date, class: 'form-control' %>
+            <label for="floatingInput">Request Date</label>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-floating">
+          <%= form.file_field :avatar, class: 'form-control' %>
+          </div>
+          </div
+          <% if current_user.admin? %>
+          <div class="col-lg-3">
+          <div class="form-floating">
+          <%= form.select :approve, [["Unapprove", 'Unapprove'], ["Approve", 'Approve']], { :selected => true }, class: 'form-select' %>
+          </div>
+          </div
+          <% end %>
+        <div class="col-lg-3">
+          <div class="form-floating">
+            <%= form.submit "Submit", class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+        <% end %>
+        

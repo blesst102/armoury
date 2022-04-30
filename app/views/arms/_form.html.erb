@@ -1,0 +1,42 @@
+<%= form_with(model: arm) do |form| %>
+  <% if arm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(arm.errors.count, "error") %> prohibited this arm from being saved:</h2>
+
+      <ul>
+        <% arm.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :srlnum %>
+    <%= form.text_field :srlnum, class: 'form-control'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :armname %>
+    <%= form.text_field :armname, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :armtype %>
+    <%= form.select :armtype, [["Small", 'Small'], ["Large", 'Large'], ["Light", 'Light']], { :selected => false }, class: 'form-select', required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :serviceability %>
+    <%= form.select :serviceability, [["Serviceable", 'Serviceable'], ["Unserviceable", 'Unserviceable']], { :selected => false }, class: 'form-select', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

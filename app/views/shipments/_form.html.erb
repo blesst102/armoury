@@ -1,0 +1,42 @@
+<%= form_with(model: shipment) do |form| %>
+  <% if shipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+      <ul>
+        <% shipment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company %>
+    <%= form.text_field :company, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_name %>
+    <%= form.text_field :container_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_description %>
+    <%= form.text_field :container_description, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :departure %>
+    <%= form.time_field :departure, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arrival %>
+    <%= form.time_field :arrival, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

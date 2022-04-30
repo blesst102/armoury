@@ -1,0 +1,48 @@
+
+        <div class="col-lg-3">
+            <div class="sidebar">
+                <ul class="widget widget-menu unstyled">
+                    <li class="active"><a href="/"><i class="fa fa-tachometer"></i>Dashboard
+                    </a></li>
+                </ul>
+                <ul class="widget widget-menu unstyled">
+                    <li><h4>Inventory</h4> </li>
+                     <li><%= link_to arms_path do%>
+                      <i class="fa fa-graduation-cap"><span>Arms</span></i>
+                      <% end %>
+                      </li>
+                   </ul>
+                </ul>
+                <!--/.widget-nav-->
+                <ul class="widget widget-menu unstyled">
+                    <li><h4>Request & Return</h4> </li>
+                        <li><%= link_to armrequests_path do%>
+                      <i class="fa fa-graduation-cap"><span>Arm Request</span></i>
+                      <% end %>
+                      </li>
+                      <li><%= link_to personnels_path do%>
+                      <i class="fa fa-graduation-cap"><span>Personnels</span></i>
+                      <% end %>
+                      </li>
+                      <% if current_user.admin? %>
+                      <li><%= link_to approvals_path do%>
+                      <i class="fa fa-graduation-cap"><span>Approvals</span></i>
+                      <% end %>
+                      </li>
+                      <% end %>
+                   </ul>
+                </ul>
+                <!--/.widget-nav-->
+                <ul class="widget widget-menu unstyled">
+                    <li><h4>Suppliers & Shipments</h4> </li>
+                   
+                    <li><%= link_to shipments_path do%>
+                        <i class="fa fa-ship"><span>Shipments</span></i>
+                        <% end %>
+                        </li>
+                </ul>
+            </div>
+            <!--/.sidebar-->
+        </div>
+        <!--/.span3-->
+
